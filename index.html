@@ -29,7 +29,7 @@
       height: 3px;
       border-radius: 50%;
       position: absolute;
-      animation: explode 1s forwards;
+      animation: explode 2s forwards;
     }
 
     @keyframes explode {
@@ -51,7 +51,7 @@
       firework.style.left = Math.random() * 90 + 'vw';
       firework.style.top = Math.random() * 90 + 'vh';
 
-      var particles = 50; // 粒子数量
+      var particles = 500; // 粒子数量
 
       for (var i = 0; i < particles; i++) {
         var particle = document.createElement('div');
@@ -81,7 +81,7 @@
         particles.forEach(function(particle) {
           particle.remove();
         });
-      }, 3000);
+      }, 300000);
     }
   </script>
 </body>
