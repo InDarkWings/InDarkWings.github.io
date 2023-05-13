@@ -25,8 +25,8 @@
 
     /* CSS 样式用于创建烟花效果 */
     .firework {
-      width: 10px;
-      height: 10px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       position: absolute;
       animation: explode 1s forwards;
@@ -34,8 +34,10 @@
 
     @keyframes explode {
       0% { transform: scale(1); opacity: 1; background-color: red; }
-      50% { transform: scale(5); opacity: 0.5; background-color: orange; }
-      100% { transform: scale(10); opacity: 0; background-color: yellow; }
+      25% { transform: scale(5); opacity: 0.7; background-color: orange; }
+      50% { transform: scale(8); opacity: 0.4; background-color: yellow; }
+      75% { transform: scale(12); opacity: 0.2; background-color: green; }
+      100% { transform: scale(15); opacity: 0; background-color: blue; }
     }
   </style>
 </head>
@@ -49,6 +51,12 @@
       firework.className = 'firework';
       firework.style.left = Math.random() * 90 + 'vw';
       firework.style.top = Math.random() * 90 + 'vh';
+      firework.style.animationDuration = Math.random() * 2 + 1 + 's';
+
+      // 随机选择烟花的颜色
+      var colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+      var randomColor = colors[Math.floor(Math.random() * colors.length)];
+      firework.style.backgroundColor = randomColor;
 
       // 将烟花元素添加到页面中
       document.body.appendChild(firework);
@@ -56,7 +64,7 @@
       // 在一段时间后移除烟花元素
       setTimeout(function() {
         firework.remove();
-      }, 2000);
+      }, 3000);
     }
   </script>
 </body>
