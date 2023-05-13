@@ -3,19 +3,39 @@
 <head>
   <title>烟花按钮</title>
   <style>
+    body {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
     /* CSS 样式用于创建烟花效果 */
     .firework {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: red;
       position: absolute;
       animation: explode 1s forwards;
     }
 
     @keyframes explode {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(5); opacity: 0; }
+      0% { transform: scale(1); opacity: 1; background-color: red; }
+      50% { transform: scale(5); opacity: 0.5; background-color: orange; }
+      100% { transform: scale(10); opacity: 0; background-color: yellow; }
     }
   </style>
 </head>
@@ -36,7 +56,7 @@
       // 在一段时间后移除烟花元素
       setTimeout(function() {
         firework.remove();
-      }, 1000);
+      }, 2000);
     }
   </script>
 </body>
