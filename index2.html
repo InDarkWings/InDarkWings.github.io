@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>烟花按钮</title>
+  <style>
+    /* CSS 样式用于创建烟花效果 */
+    .firework {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      animation: explode 1s forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <button onclick="createFirework()">释放烟花</button>
+
+  <script>
+    function createFirework() {
+      // 创建一个烟花元素
+      var firework = document.createElement('div');
+      firework.className = 'firework';
+      firework.style.left = Math.random() * 90 + 'vw';
+      firework.style.top = Math.random() * 90 + 'vh';
+
+      // 将烟花元素添加到页面中
+      document.body.appendChild(firework);
+
+      // 在一段时间后移除烟花元素
+      setTimeout(function() {
+        firework.remove();
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
